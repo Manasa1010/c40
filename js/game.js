@@ -52,13 +52,14 @@ class Game{
             for(var plr in allPlayers){
                 index++;
                 x=x+200;
-                y=displayHeight-allPlayers[plr].distance;
+                y=displayHeight-allPlayers[plr].distance-50;
                 cars[index-1].x=x;
                 cars[index-1].y=y;
                 if(index===player.index){
-                    cars[index-1].shapeColor="red";
+                    fill("red");
+                    circle(x,y,100);
                     camera.position.x=displayWidth/2;
-                    camera.position.y=cars[index-1].y;
+                    camera.position.y= cars[index-1].y;
                 } 
 
             }

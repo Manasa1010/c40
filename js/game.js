@@ -38,9 +38,10 @@ class Game{
     play(){
         form.hide();
 
-       // textSize(30);
-       // text("GAME START",120,100);
+       // title.htmlSize(30);
+       // title.html("GAME START",120,100);
         Player.getPlayerInfo();
+        player.getCarsAtEnd();
 
         if(allPlayers!==undefined){
             background(ground);
@@ -70,6 +71,8 @@ class Game{
         }
         if(player.distance>3860){
             gameState=2;
+            player.rank++;
+            Player.updateCarsAtEnd(player.rank);
         }
         drawSprites()
 
@@ -77,6 +80,22 @@ class Game{
     }
     end(){
         console.log("gameEnded");
+        console.log(player.rank);
+        
+        var title=createElement("h2");
+        title.position(displayWidth/2-200,displayHeight/8);
+        if(player.rank===1){
+        title.html("you are "+player.rank+"st");
+        }
+        if(player.rank===2){
+            title.html("you are "+player.rank+"nd");
+            }
+       if(player.rank===3){
+            title.html("you are "+player.rank+"rd");
+             }
+         if(player.rank===4){
+            title.html("you are "+player.rank+"th");
+             }
     }
 
 }
